@@ -1,0 +1,35 @@
+body {
+   background-color: gray;
+    height: 50%;
+  }
+  .form {
+    width: 100%;
+    margin: 30px ;
+  }
+  
+  .form > h2  {
+    
+    text-align: center;
+  }
+  .form1 {
+    margin-bottom: 15px;
+  }
+  .btn-primary {
+    display:block;
+    cursor: pointer;
+    width: 20%;
+    margin:40px;
+   
+    
+  }
+  .login{
+    margin:20%;
+    display: grid;
+    justify-items: center;
+    border-radius: 50px;
+    box-shadow:0px 0px 10px 2px black;
+    background-color: beige;
+    align-items: center;
+   
+  }
+
