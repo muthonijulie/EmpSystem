@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee management system</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <section id="header">
+    <div class="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+           <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </div>
+    <div class="name-pic">
+        <img src="image1.jpg" alt="profile photo">
+    <div class="name">
+       <h6>Welcome!</h6>
+       <p id="name">Name</p>
+    </div>
+    </div>
+    </section>
+    <section id="task">
+        <div class ="card">
+        <h3>Applications</h3>
+        <hr>
+        <div id="btn">
+           <a href="leave.html"><button>Leave</button></a> 
+            <a href="overdraft.html"> <button>Overdraft</button></a>
+        </div>
+        </div>
+        <img src="image1.jpg" alt="image" id="task-image">
+    </section>
+    <section id="Table">
+        <h2>Tasks</h2>
+        <table>
+            <thead>
+              <tr>
+                <th>Task ID</th>
+                <th>Task Description</th>
+                <th>Assigned To</th>
+                <th>Due Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Complete project proposal</td>
+                <td>John Doe</td>
+                <td>2024-05-10</td>
+                <td><input type="checkbox" id="complete"></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Review documentation</td>
+                <td>Jane Smith</td>
+                <td>2024-05-15</td>
+                <td><input type="checkbox" id="complete"></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Prepare presentation</td>
+                <td>Emily Johnson</td>
+                <td>2024-05-20</td>
+                <td><input type="checkbox" id="complete"></td>
+              </tr>
+          
+            </tbody>
+          </table>
+    </section>
+</body>
+</html>

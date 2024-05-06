@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p,
+h6 {
+    color: #fff;
+}
+
+button {
+    padding: 10px;
+    width: 100px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #1d1160;
+    border-radius: 10px;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(19, 21, 46, 1);
+    height: 8vh;
+    box-shadow: 0 0 15px #fff;
+}
+
+.navbar ul {
+    display: flex;
+    padding-left: 5px;
+    list-style-type: none;
+
+}
+
+.navbar ul li a {
+    padding-left: 20px;
+    list-style-type: none;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.name-pic {
+    display: flex;
+    padding-right: 20px;
+    margin-right: 3px;
+}
+
+.name-pic img {
+    border-radius: 50%;
+    height: 35px;
+}
+
+.navbar ul li a:hover {
+    background: linear-gradient(130deg, #a49ab0, #1d1160);
+
+}
+
+/*end of the header section
+/*start of the task section*/
+#task {
+    background-color: #1d1160;
+    color: #1a1a1a;
+    height: 40vh;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#task-image {
+    margin: 30px 30px;
+    border-radius: 50%;
+}
+
+#task .card {
+
+    height: 150px;
+    width: 300px;
+    background-color: #fff;
+    border: 2px solid grey;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #1a1a1a;
+    padding: 20px;
+    margin-top: 60px;
+    margin-left: 10px;
+    box-shadow: 0 0 30px black;
+    /*look into this boxshadow effect*/
+}
+
+#task .card button {
+    background-color: #a49ab0;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+/*table section*/
+#task {
+    display: flex;
+}
+
+#task-table {
+    border: 3px solid gray;
+}
+
+table {
+    width: 85%;
+    border-collapse: collapse;
+    margin: 20px;
+    box-shadow: 0 0 20px #1a1a1a;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #535C91;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #9290C3;
+}
+
+tr:nth-child(odd) {
+    background-color: #535C91;
+}
+
+tr:hover {
+    background-color: #ccc;
+}
+
+input[type="checkbox"] {
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+}
+
+/*leave/off application section*/
+.leave-body {
+    background-image: url('form.jpg');
+}
+
+form {
+    box-shadow: 2px 6px 30px #fff;
+}
+
+/*profile section*/
+#profile-body{
+    background-image: url('form.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display:flex;
+    justify-content: space-between;
+    width: 100vw;
+}
+#profile-picture{
+    background-color: #535C91;
+    height: 60vh;
+    width:300px;
+    margin-left: 40px;
+    
+    
+   /* position: relative;*/
+
+}
+#task-image2{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    margin-left: 30px;
+}
