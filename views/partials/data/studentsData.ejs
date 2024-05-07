@@ -1,0 +1,35 @@
+<div class="form">
+  <h3>Student Details</h3>
+    <table class="table table-striped table-responsive">
+        <thead>
+          <tr>
+              <th scope="col">Employee Id</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Date of Birth</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone Number</th>
+              <th scope="col">Hire Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (sampleData.length > 0){ %>
+              <% sampleData.forEach((data)=>{ %>
+                  <tr>
+                    <td><%= data.emp_id %></td>
+                    <td><%= data.FName %></td>
+                    <td><%= data.LName %></td>
+                    <td><%= data.DOB %></td>
+                    <td><%= data.Email %></td>
+                    <td><%= data.PhoneNo %></td>
+                    <td><%= data.HireDate %></td>
+                  </tr>
+                <% }) %>
+          <% } else { %>
+            <tr>
+              <td colspan="4">No Data Found</td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+</div>
