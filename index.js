@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const session = require('body-parser');
+const session = require('express-session');
 const app = express();
 const port = 3000;
 
@@ -8,6 +8,8 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
+
+require('./server/routes/hrDashboard')(app);
 
 
 app.get('/', (req, res) => {
