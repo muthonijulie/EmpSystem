@@ -80,9 +80,11 @@ exports.authenticateUser = async (req, res) => {
                     const hashedPassword = retrievedHashedPassword.toString();
                     const retrievedRole = result.map(data => data.Role);
                     const userRole = retrievedRole.toString();
+                    const empId = result.map(data => data.emp_id).toString();
                     if (await bycrpt.compare(password, hashedPassword)) {
                         req.session.user = username;
                         req.session.role = userRole;
+                        req.session.empId = empId;
                         switch (userRole) {
                             case "Employee":
                                 res.redirect('/employee')
@@ -167,4 +169,23 @@ exports.logoutUser = async (req, res) => {
             res.redirect('/')
         }
     })
+}
+exports.viewUserDetails = async (req, res)=>{
+    if(req.session.user){
+        db.query('select * from users where username=?', req.session.user, (err, result)=>{
+            if (err) {
+                res.render('./layouts/errorpage', {
+                    error: "Incorrect password",
+                    redirect: "Go back",
+                    redirectLink: "/userdetails"
+                })
+            } else {
+                res.render('./layouts/userDetails', {
+                    sampleData: result
+                })
+            }
+        })
+    } else{
+        res.redirect('/login')
+    }
 }

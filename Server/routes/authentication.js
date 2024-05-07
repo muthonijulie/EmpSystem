@@ -8,4 +8,5 @@ module.exports = (app)=>{
     app.get('/logout', authenticationController.logoutUser);
     app.get('/changeUserPassword/:username', authenticationController.changePasswordForm);
     app.post('/changeUserPassword/:username', authenticationController.changePassword);
+    app.get('/userdetails', authenticationController.viewUserDetails);
 }
