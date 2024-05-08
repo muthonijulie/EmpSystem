@@ -14,6 +14,7 @@ app.use(session({
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+require('./server/routes/adminDashboard')(app);
 require('./server/routes/authentication')(app);
 require('./server/routes/employeeDashboard')(app);
 

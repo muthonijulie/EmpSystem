@@ -1,0 +1,22 @@
+<% if (sampleData.length> 0){ %>
+    <% sampleData.forEach((data)=>{ %>
+        <form class="form" action="/admin/changeroles/<%= data.Username %>" method="post">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="username" class="form-control" id="username" placeholder="<%= data.Username %>"
+                    disabled>
+            </div>
+            <div class="mb-3">
+                <label for="role" class="form-label">Role</label>
+                <select id="role" name="role" size="1" class="form-select">
+                    <option value="" selected disabled>(select one)</option>
+                    <option value="Student" selected>Student</option>
+                    <option value="Housekeeper" selected>Housekeeper</option>
+                    <option value="Matron" selected>Matron</option>
+                    <option value="Admin" selected>Admin</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <% }) %>
+<% } %>
