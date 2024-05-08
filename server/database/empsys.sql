@@ -31,7 +31,7 @@ CREATE TABLE `empdetails` (
   `PhoneNo` varchar(10) NOT NULL,
   `Hiredate` date NOT NULL,
   PRIMARY KEY (`emp_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,7 +58,7 @@ CREATE TABLE `payroll` (
   `total_salary` int NOT NULL,
   KEY `emp_id` (`emp_id`),
   CONSTRAINT `payroll_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `empdetails` (`emp_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -84,7 +84,7 @@ CREATE TABLE `projects` (
   PRIMARY KEY (`projectid`),
   KEY `TaskID` (`TaskID`),
   CONSTRAINT `projects_ibfk_1` FOREIGN KEY (`TaskID`) REFERENCES `tasks` (`TaskID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -110,7 +110,7 @@ CREATE TABLE `tasks` (
   PRIMARY KEY (`TaskID`),
   KEY `emp_id` (`emp_id`),
   CONSTRAINT `tasks_ibfk_1` FOREIGN KEY (`emp_id`) REFERENCES `empdetails` (`emp_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

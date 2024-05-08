@@ -48,7 +48,7 @@ exports.createUser = async (req, res) => {
                     redirectLink: "/signin"
                 })
             } else {
-                res.redirect('/employee');
+                res.redirect('/login');
             }
         })
         req.session.user = username;
@@ -89,11 +89,14 @@ exports.authenticateUser = async (req, res) => {
                             case "Employee":
                                 res.redirect('/employee')
                                 break;
-                            case "HR":
+                            case "hr":
                                 res.redirect('/hr')
                                 break;
                             case "Manager":
                                 res.redirect('/manager')
+                                break;
+                            case "Admin":
+                                res.redirect('/admin')
                                 break;
                             default:
                                 break;
@@ -170,9 +173,9 @@ exports.logoutUser = async (req, res) => {
         }
     })
 }
-exports.viewUserDetails = async (req, res)=>{
-    if(req.session.user){
-        db.query('select * from users where username=?', req.session.user, (err, result)=>{
+exports.viewUserDetails = async (req, res) => {
+    if (req.session.user) {
+        db.query('select * from users where username=?', req.session.user, (err, result) => {
             if (err) {
                 res.render('./layouts/errorpage', {
                     error: "Incorrect password",
@@ -185,7 +188,7 @@ exports.viewUserDetails = async (req, res)=>{
                 })
             }
         })
-    } else{
+    } else {
         res.redirect('/login')
     }
 }
