@@ -48,7 +48,7 @@ exports.showAssignedTasks = async (req, res) => {
 exports.overdraftForm = async (req, res) => {
     if (req.session.user) {
         if (req.session.role === "Employee") {
-            db.query('select * from overdraft where emp_id=?', req.session.empId, (err, result) => {
+            db.query('select * from overdraft where emp_id=? and applicationstatus="Rejected"', req.session.empId, (err, result) => {
                 if (result.length === 0) {
                     db.query('select * from empdetails', (err, result) => {
                         res.render('./layouts/overdraftApplication', {
@@ -130,7 +130,7 @@ exports.overdraftDetails = async (req, res) => {
 exports.leaveForm = async (req, res) => {
     if (req.session.user) {
         if (req.session.role === "Employee") {
-            db.query('select * from leaveapplications where emp_id=?', req.session.empId, (err, result) => {
+            db.query('select * from leaveapplications where emp_id=? and leavestatus="Rejected', req.session.empId, (err, result) => {
                 if (err) {
                     console.log(err)
                 } else {
