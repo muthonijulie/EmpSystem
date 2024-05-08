@@ -1,0 +1,32 @@
+<div class="form">
+    <h3>OVERDRAFT APPLICATION FORM</h3>
+        <form class="" action="/application/overdraft" method="post">
+          <div class="mb-3">
+            <label for="overdraftId" class="form-label">Overdraft ID:</label>
+            <input type="text" class="form-control" name="overdraftId" id="overdraftId" required/>
+
+            <label for="employeeId" class="form-label">Employee ID:</label>
+            <select id="employeeId" name="employeeId" size="1" class="form-select" required>
+              <option value="" selected disabled>(select one)</option>
+              <% if (sampleData.length > 0){ %>
+                <% sampleData.forEach((data)=>{ %>
+                  <option value="<%= data.emp_id %>" class="row"><%= data.emp_id %>.  <%= data.FName %> <%= data.LName %></option>
+                  <% }) %>
+              <% } else { %>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <% } %>
+            </select>
+
+            <label for="totalSalary" class="form-label">Salary</label>
+            <input type="number" class="form-control" name="totalSalary" id="totalSalary" required/>
+
+            <label for="overdraftAmount" class="form-label">Overdraft Amount</label>
+            <input type="number" class="form-control" name="overdraftAmount" id="overdraftAmount" required/>
+
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+          </div>
+        </form>
+</div>

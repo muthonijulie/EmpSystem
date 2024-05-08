@@ -1,0 +1,35 @@
+<div class="form">
+  <h3>Leave Application Details</h3>
+    <table class="table table-striped table-responsive">
+        <thead>
+          <tr>
+              <th scope="col">Leave Id</th>
+              <th scope="col">Employee Id</th>
+              <th scope="col">Application Date</th>
+              <th scope="col">Leave Start Date</th>
+              <th scope="col">Leave End Date</th>
+              <th scope="col">Leave Type</th>
+              <th scope="col">Leave Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (sampleData.length > 0){ %>
+              <% sampleData.forEach((data)=>{ %>
+                  <tr>
+                    <td><%= data.leaveid %></td>
+                    <td><%= data.emp_id %></td>
+                    <td><%= data.applicationDate %></td>
+                    <td><%= data.leaveStart %></td>
+                    <td><%= data.leaveEnd %></td>
+                    <td><%= data.leaveType %></td>
+                    <td><%= data.leaveStatus %></td>
+                  </tr>
+                <% }) %>
+          <% } else { %>
+            <tr>
+              <td colspan="7">No Data Found</td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+</div>
