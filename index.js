@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 require('./server/routes/adminDashboard')(app);
 require('./server/routes/authentication')(app);
 require('./server/routes/employeeDashboard')(app);
-
+require('./server/routes/hrDashboard')(app);
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/src/index.html');

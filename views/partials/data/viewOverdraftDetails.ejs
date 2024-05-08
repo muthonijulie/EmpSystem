@@ -8,6 +8,7 @@
               <th scope="col">Total Salary</th>
               <th scope="col">Overdraft Amount</th>
               <th scope="col">Application Status</th>
+              <th scope="col">Review</th>
           </tr>
         </thead>
         <tbody>
@@ -19,6 +20,9 @@
                     <td><%= data.total_salary %></td>
                     <td><%= data.overdraftAmount %></td>
                     <td><%= data.ApplicationStatus %></td>
+                    <td>
+                      <button type="button" class="btn btn-primary btn-sm"><a href="/hr/viewoverdraftapplications/<%= data.overdraftId %>">Review</a></button>
+                    </td>
                   </tr>
                 <% }) %>
           <% } else { %>

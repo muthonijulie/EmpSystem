@@ -89,7 +89,7 @@ exports.authenticateUser = async (req, res) => {
                             case "Employee":
                                 res.redirect('/employee')
                                 break;
-                            case "Hr":
+                            case "hr":
                                 res.redirect('/hr')
                                 break;
                             case "Manager":

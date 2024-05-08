@@ -1,21 +1,20 @@
 const db = require('../config/database');
 
-
 exports.showEmployeeDetails = async (req, res) => {
   if (req.session.user) {
-    if (req.session.role === "HR") {
+    if (req.session.role === "hr") {
       db.query('select * from empdetails', (err, result) => {
         if (err) {
           console.log(err)
-        }
-        else {
-          res.render = ('.layouts/hrHomepage', {
+        } else {
+          res.render('./layouts/hrHomepage', {
             sampleData: result
           });
         }
       })
-    } else {
-      res.render('./layouts/unauthorizedAccess');
+    }
+    else {
+      res.render('./layouts/unauthorizedAccess')
     }
   } else {
     res.redirect('/login')
@@ -23,7 +22,7 @@ exports.showEmployeeDetails = async (req, res) => {
 }
 exports.registerEmployeeForm = async (req, res) => {
   if (req.session.user) {
-    if (req.session.role === "HR") {
+    if (req.session.role === "hr") {
       res.render('./layouts/hrRegister')
     } else {
       res.render('./layouts/unauthorizedAccess');
@@ -34,7 +33,7 @@ exports.registerEmployeeForm = async (req, res) => {
 }
 exports.registerEmployeeDetails = async (req, res) => {
   if (req.session.user) {
-    if (req.session.role === "HR") {
+    if (req.session.role === "hr") {
       var emp_Id = req.body.emp_id;
       var fName = req.body.FName
       var lName = req.body.LName
@@ -74,7 +73,7 @@ exports.registerEmployeeDetails = async (req, res) => {
 
 exports.updateEmployeeDetails = async (req, res) => {
   if (req.session.user) {
-    if (req.session.role == "employee") {
+    if (req.session.role == "hr") {
       var emp_Id = req.body.emp_id;
       var fName = req.body.FName
       var lName = req.body.LName
@@ -108,4 +107,142 @@ exports.updateEmployeeDetails = async (req, res) => {
       }
     }
   })
+}
+exports.showOverdraftApplications = async (req, res) => {
+  if (req.session.user) {
+    if (req.session.role === "hr") {
+      db.query('select * from overdraft', (err, result) => {
+        if (err) {
+          return err;
+        } else {
+          res.render('./layouts/hrViewOverdraft', {
+            sampleData: result,
+          })
+        }
+      })
+    } else {
+      res.render('./layouts/unauthorizedAccess')
+    }
+  } else {
+    res.redirect('/login');
+  }
+}
+exports.viewOverdraftApplications = async (req, res) => {
+  if (req.session.user) {
+    if (req.session.role === "hr") {
+      var id = req.params.id;
+      db.query('select * from overdraft where overdraftId=?;', id, (err, result) => {
+        if (err) {
+          res.render('./layouts/errorpage', {
+            error: err,
+            redirect: "Go back",
+            redirectLink: "/hr"
+          })
+        } else {
+          res.render('./layouts/hrReviewOverdraft', {
+            sampleData: result
+          });
+        }
+      })
+    } else {
+      res.render('./layouts/unauthorizedAccess')
+    }
+  } else {
+    res.redirect('/login')
+  }
+}
+exports.reviewOverdraftApplications = async (req, res) => {
+  if (req.session.user) {
+    if (req.session.role === "hr") {
+      var status = req.body.Status;
+      var id = req.params.appNo;
+      let params = {
+        ApplicationStatus: status
+      }
+      db.query('Update overdraft set? where overdraftid=?', [params, id], (err, result) => {
+        if (err) {
+          res.render('./layouts/errorpage', {
+            error: err,
+            redirect: "Go back",
+            redirectLink: "/hr"
+          })
+        } else {
+          res.redirect('/hr/overdrafts')
+        }
+      })
+    } else {
+      res.render('./layouts/unauthorizedAccess')
+    }
+  } else {
+    res.redirect('/login')
+  }
+}
+exports.showLeaveApplications = async (req, res) => {
+  if (req.session.user) {
+    if (req.session.role === "hr") {
+      db.query('select * from leaveapplications', (err, result) => {
+        if (err) {
+          return err;
+        } else {
+          res.render('./layouts/hrViewLeave', {
+            sampleData: result,
+          })
+        }
+      })
+    } else {
+      res.render('./layouts/unauthorizedAccess')
+    }
+  } else {
+    res.redirect('/login');
+  }
+}
+exports.viewLeaveApplications = async (req, res) => {
+  if (req.session.user) {
+    if (req.session.role === "hr") {
+      var id = req.params.id;
+      db.query('select * from leaveapplications where leaveid=?;', id, (err, result) => {
+        if (err) {
+          res.render('./layouts/errorpage', {
+            error: err,
+            redirect: "Go back",
+            redirectLink: "/hr"
+          })
+        } else {
+          res.render('./layouts/hrReviewLeave', {
+            sampleData: result
+          });
+        }
+      })
+    } else {
+      res.render('./layouts/unauthorizedAccess')
+    }
+  } else {
+    res.redirect('/login')
+  }
+}
+exports.reviewLeaveApplications = async (req, res) => {
+  if (req.session.user) {
+    if (req.session.role === "hr") {
+      var status = req.body.Status;
+      var id = req.params.appNo;
+      let params = {
+        leaveStatus: status
+      }
+      db.query('Update leaveapplications set? where leaveid=?', [params, id], (err, result) => {
+        if (err) {
+          res.render('./layouts/errorpage', {
+            error: err,
+            redirect: "Go back",
+            redirectLink: "/hr"
+          })
+        } else {
+          res.redirect('/hr/leaves')
+        }
+      })
+    } else {
+      res.render('./layouts/unauthorizedAccess')
+    }
+  } else {
+    res.redirect('/login')
+  }
 }
