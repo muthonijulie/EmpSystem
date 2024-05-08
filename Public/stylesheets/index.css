@@ -4,7 +4,11 @@ body {
   }
   .form {
     width: 100%;
-    margin: 30px ;
+    margin: 2% auto;
+    border: 1px solid #5D5D81;
+    border-radius: 5px;
+    padding: 5%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
   .form > h2  {
@@ -29,6 +33,45 @@ body {
     background-color: beige;
     align-items: center; 
   }
+  .wrapper {
+    position: fixed;
+    width: 100%;
+     /* Set your background color here */
+    z-index: 1000;
+}
+header {
+   /* Set your header background color here */
+  color: #fff; /* Set your header text color here */
+  padding: 10px;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+   /* Set your logo text color here */
+}
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.menu ul li {
+  margin-right: 15px;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #fff; /* Set your menu text color here */
+}
   @media only screen and (max-width: 500px) {
     .form,.form1,.btn-primary,.login {
       width: 100%;

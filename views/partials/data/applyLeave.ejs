@@ -1,0 +1,38 @@
+<div class="form">
+    <h3>LEAVE APPLICATION FORM</h3>
+        <form class="" action="/application/leave" method="post">
+          <div class="mb-3">
+            <label for="leaveId" class="form-label">LEAVE ID:</label>
+            <input type="text" class="form-control" name="leaveId" id="leaveId" required/>
+
+            <label for="employeeId" class="form-label">EMPLOYEE ID:</label>
+            <select id="employeeId" name="employeeId" size="1" class="form-select" required>
+              <option value="" selected disabled>(select one)</option>
+              <% if (sampleData.length > 0){ %>
+                <% sampleData.forEach((data)=>{ %>
+                  <option value="<%= data.emp_id %>" class="row"><%= data.emp_id %>.  <%= data.FName %> <%= data.LName %></option>
+                  <% }) %>
+              <% } else { %>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <% } %>
+            </select>
+
+            <label for="applicationDate" class="form-label">APPLICATION DATE</label>
+            <input type="date" class="form-control" name="applicationDate" id="applicationDate" required/>
+
+            <label for="leaveStart" class="form-label">START DATE</label>
+            <input type="date" class="form-control" name="leaveStart" id="leaveStart" required/>
+
+            <label for="leaveEnd" class="form-label">END DATE</label>
+            <input type="date" class="form-control" name="leaveEnd" id="leaveEnd" required/>
+
+            <label for="leaveType" class="form-label">LEAVE DESCRIPTION</label>
+            <textarea type="text" name="leaveType" class="form-control" id="leaveType" required ></textarea><br>
+
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+          </div>
+        </form>
+</div>

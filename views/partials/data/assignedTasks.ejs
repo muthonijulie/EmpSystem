@@ -1,0 +1,27 @@
+<div class="form">
+  <h3>Assigned Tasks Details</h3>
+    <table class="table table-striped table-responsive">
+        <thead>
+          <tr>
+              <th scope="col">Task Id</th>
+              <th scope="col">Task Name</th>
+              <th scope="col">Employee Id</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (sampleData.length > 0){ %>
+              <% sampleData.forEach((data)=>{ %>
+                  <tr>
+                    <td><%= data.TaskID %></td>
+                    <td><%= data.Taskname %></td>
+                    <td><%= data.emp_id %></td>
+                  </tr>
+                <% }) %>
+          <% } else { %>
+            <tr>
+              <td colspan="3">No current tasks assigned</td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+</div>

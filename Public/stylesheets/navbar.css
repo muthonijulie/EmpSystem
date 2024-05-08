@@ -1,0 +1,24 @@
+.navbar{
+    background-color: #5D5D81;
+    display: none;
+}
+.navbar .container-fluid .navbar-brand{
+    font-size: 22px;
+    color: white;
+    font-weight: 600;
+}
+.nav-item .nav-link{
+    color: white;
+}
+.nav-item .nav-link i{
+    padding-right: 5px;
+}
+.nav-item .nav-link .link-name{
+    font-size: 15px;
+    font-weight: 400;
+}
+@media screen and (max-width: 800px) {
+    .navbar{
+        display: block;
+    }
+}
