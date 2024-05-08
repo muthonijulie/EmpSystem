@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="form">
+    <% if (sampleData.length> 0){ %>
+      <% sampleData.forEach((data)=>{ %>
+        <h3>Application Details</h3>
+        <form class="" action="/hr/reviewoverdraftapplications/<%= data.overdraftId %>" method="post">
+          <div class="mb-3">
+            <label for="overdraftId" class="form-label">OVERDRAFT ID:</label>
+            <input type="text" name="overdraftId" class="form-control" id="overdraftId" disabled
+              placeholder="<%= data.overdraftId %>" />
+          </div>
+          <div class="mb-3">
+            <label for="employeeId" class="form-label">EMPLOYEE ID:</label>
+            <input type="text" name="employeeId" class="form-control" id="employeeId" disabled
+              placeholder="<%= data.emp_id %>" />
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="tSalary" class="form-label">TOTAL SALARY:</label>
+              <input type="number" name="tSalary" class="form-control" id="tSalary" disabled
+                placeholder="<%= data.total_salary %>" />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="overdraftAmount" class="form-label">OVERDRAFT AMOUNT:</label>
+            <input type="text" name="overdraftAmount" class="form-control" id="overdraftAmount" disabled
+              placeholder="<%= data.overdraftAmount %>">
+
+            <label for="ApplicationStatus" class="form-label">APPLICATION STATUS:</label>
+            <input type="text" name="ApplicationStatus" class="form-control" id="ApplicationStatus" disabled
+              placeholder="<%= data.ApplicationStatus %>" />
+          </div><br>
+          <% }) %>
+          <% } else { %>
+            <textarea type="text" name="data" class="form-control" id="data"
+            disabled placeholder="Data not found"></textarea>
+        <% } %>
+      <label for="Status" class="form-label">Review Application:</label>
+      <select id="status" name="Status" size="1" class="form-select mb-3">
+        <option value="Pending" selected disabled>(select one)</option>
+        <option value="Accepted">Accept</option>
+        <option value="Rejected">Reject</option>
+      </select>
+      <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+  </div>
+</div>
