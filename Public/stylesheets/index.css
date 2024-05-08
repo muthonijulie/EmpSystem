@@ -1,5 +1,5 @@
 body {
-   background-color: gray;
+   
     height: 50%;
   }
   .form {
@@ -36,11 +36,13 @@ body {
   .wrapper {
     position: fixed;
     width: 100%;
+    background-color: #262626;
      /* Set your background color here */
     z-index: 1000;
 }
 header {
    /* Set your header background color here */
+   background-color: black;
   color: #fff; /* Set your header text color here */
   padding: 10px;
   text-align: center;
@@ -55,6 +57,7 @@ nav {
 .logo {
   font-size: 1.5em;
   font-weight: bold;
+  color: #fab23d;
    /* Set your logo text color here */
 }
 .menu ul {
@@ -70,7 +73,7 @@ nav {
 
 .menu ul li a {
   text-decoration: none;
-  color: #fff; /* Set your menu text color here */
+  color: #383838; /* Set your menu text color here */
 }
   @media only screen and (max-width: 500px) {
     .form,.form1,.btn-primary,.login {
