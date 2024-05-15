@@ -1,0 +1,25 @@
+<div class="form">
+  <h3>Project Details</h3>
+    <table class="table table-striped table-responsive">
+        <thead>
+          <tr>
+              <th scope="col">Project Id</th>
+              <th scope="col">Project Title</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (sampleData.length > 0){ %>
+              <% sampleData.forEach((data)=>{ %>
+                  <tr>
+                    <td><%= data.projectid %></td>
+                    <td><%= data.pTitle %></td>
+                  </tr>
+                <% }) %>
+          <% } else { %>
+            <tr>
+              <td colspan="3">No Data Found</td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+</div>

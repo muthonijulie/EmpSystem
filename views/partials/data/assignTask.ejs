@@ -1,0 +1,36 @@
+<div class="form">
+    <h3>ASSIGN A TASK</h3>
+    <% if (sampleData.length> 0){ %>
+      <% sampleData.forEach((data)=>{ %>
+        <form class="form" action="/manager/assigntask/<%= data.TaskID %>" method="post">
+          <div class="mb-3">
+            <label for="projId" class="form-label">TASK ID:</label>
+            <input type="text" class="form-control" name="projectId" id="projId" placeholder="<%= data.TaskID %>" disabled/>
+
+            <label for="pTitle" class="form-label">TASK NAME:</label>
+            <input type="text" class="form-control" name="pTitle" id="pTitle" placeholder="<%= data.Taskname %>" disabled/>
+
+            <label for="projectId" class="form-label">PROJECT ID:</label>
+            <input type="text" class="form-control" name="projectId" id="projectId" placeholder="<%= data.ProjectId %>" disabled/>
+
+            <label for="emp_id" class="form-label">EMPLOYEE ID:</label>
+            <select id="emp_id" name="emp_id" size="1" class="form-select" required>
+              <option value="" selected disabled>(select one)</option>
+              <% if (sampleData2.length > 0){ %>
+                <% sampleData2.forEach((data)=>{ %>
+                  <option value="<%= data.emp_id %>" class="row"><%= data.emp_id %>.  <%= data.FName %> <%= data.LName %></option>
+                  <% }) %>
+              <% } else { %>
+              <option value="" disabled>No Data Found</option>
+              <% } %>
+            </select>
+
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+          </div>
+        </form>
+        <% }) %>
+
+        <% } else{ %>
+            <p class="fs-4">No data Found in the projects table</p>
+          <% } %>
+</div>

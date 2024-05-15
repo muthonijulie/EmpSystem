@@ -1,0 +1,11 @@
+<%- include('../partials/header.ejs'); -%>
+<%- include('../partials/managerNavbar.ejs'); -%>
+<%- include('../partials/managerSidebar.ejs'); -%>
+<div class="container">
+    <h3>WELCOME TO EMPLOYEE MANAGEMENT SYSTEM</h3>
+    <button type="button" class="btn btn-primary btn-sm"><a href="/manager/tasks/unassigned">View Unassigned Tasks</a></button>
+    <button type="button" class="btn btn-primary btn-sm"><a href="/manager/tasks/accepted">View Accepted Tasks</a></button>
+    <button type="button" class="btn btn-primary btn-sm"><a href="/manager/tasks/rejected">View Rejected Tasks</a></button>
+    <%- include('../partials/data/taskData.ejs') -%>
+</div>
+<%- include('../partials/footer.ejs'); -%>

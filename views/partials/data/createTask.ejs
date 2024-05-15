@@ -1,0 +1,26 @@
+<div class="form">
+    <h3>CREATE A NEW TASK</h3>
+        <form class="" action="/manager/new-task" method="post">
+          <div class="mb-3">
+            <label for="taskId" class="form-label">TASK ID:</label>
+            <input type="text" class="form-control" name="taskId" id="taskId" required/>
+
+            <label for="tTitle" class="form-label">TASK NAME:</label>
+            <input type="text" class="form-control" name="tTitle" id="tTitle" required/>
+
+            <label for="projectId" class="form-label">PROJECT ID:</label>
+            <select id="projectId" name="projectId" size="1" class="form-select" required>
+              <option value="" selected disabled>(select one)</option>
+              <% if (sampleData.length > 0){ %>
+                <% sampleData.forEach((data)=>{ %>
+                  <option value="<%= data.projectid %>" class="row"><%= data.projectid %>.  <%= data.pTitle %></option>
+                  <% }) %>
+              <% } else { %>
+              <option value="" disabled>No Data Found</option>
+              <% } %>
+            </select>
+
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+          </div>
+        </form>
+</div>
